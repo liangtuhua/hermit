@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq获取dom</title>
+</head>
+<body>
+  <div class="liang">
+    <div class="hua">朗朗上口萨拉斯卡</div>
+  </div>
+  <div class="box">
+    <div class="conten">我是显示的内容<span>sssssss</span><div class="a01">123456</div></div>
+  </div>
+  <input type="text" name="" value="默认值">
+  <button>提交</button>
+
+  <div class="shuxin">
+    <a class="aba" href="001.html">获取属性值</a>
+    <div class="huoq">获取</div>
+  </div>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.box').click(function(){
+        console.log(this);
+        var aaa =  $('.conten').html();
+        console.log('aaa==>', aaa);
+        var bbb = $('.a01').text();
+        console.log('bbb==>', bbb);
+      })
+      $('button').click(function(){
+        var ddd = $('input').val();
+        console.log('ddd==>', ddd);
+      })
+      $('.huoq').click(function(){
+        console.log(this);
+
+        //获取的是href的属性所以要在attr('')里面带上属性名称才能获取它的属性值
+        var bbqq = $('.aba').attr('href');
+        console.log('bbqq==>', bbqq);
+
+        var pop = $('input').attr('type');
+        console.log('pop==>', pop);
+      })
+
+      $('.liang').click(function(){
+        $('.hua').text(function(i, texts){
+          return 'lian' + texts + i;
+        })
+      })
+    })
+  </script>
+</body>
+</html>

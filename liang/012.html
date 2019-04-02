@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq添加元素</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    .box{
+      width:100%;
+      background-color: #0f0;
+      line-height: 50px;
+      margin:50px 0 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="lianggg" style="width:200px;line-height: 80px;margin:0 auto;">
+    <div id="huaaa" style="width:200px;line-height: 80px;margin:0 auto;">显示的内容</div>
+  </div>
+  <button id="btnnn">添加</button>
+
+  <div class="box">
+    <span>咔咔咔咔咔咔咔卡</span>
+  </div>
+  <ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+  </ul>
+  <button id="lia">添加文本</button>
+  <button id="tu">添加列表</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+
+      $('#btnnn').click(function(){
+        console.log(this);
+        var laa1 = '<h2> 20120120 </h2>';
+        var laa2 = $('<i></i>').text('我是使用jq方法添加的文本');
+        var laa3 = document.createElement('button');
+        laa3.innerHTML = '我是添加的按钮';
+        var bsns = $('#huaaa').after(laa1, laa2, laa3);
+        console.log('bsns==>', bsns);
+      })
+
+      //append（恶片特）在元素的结尾添加元素
+      // $('#lia').click(function(){
+      //   $('span').append('<div>我是添加来的文字</div>');
+      // });
+      // $('#tu').click(function(){
+      //   $('ul').append('<li>006添加过来的</li>');
+      // });
+
+      //prepend（破片）在元素的开头添加元素
+      // $('#lia').click(function(){
+      //   $('span').prepend('<div>我是添加来的文字</div>');
+      // });
+      // $('#tu').click(function(){
+      //   $('ul').prepend('<li>006添加过来的</li>');
+      // });
+
+
+      //添加多个文本
+      // $('#lia').click(function(){
+      //   var la1 = '<p>文本内容</p>'; // 使用 HTML 标签创建文本
+      //   var la2 = $('<div></div>').text('文本内容222'); // 使用 jQuery 创建文本
+      //   var la3 = document.createElement('h1');
+      //   la3.innerHTML="我是通过dom创建的文本";
+      //   $('span').prepend(la1, la2, la3);
+      // });
+      // $('#tu').click(function(){
+      //   $('ul').prepend('<li>006添加过来的</li>');
+      // });
+
+      $('#lia').click(function(){
+        var la1 = '<p>文本内容</p>'; // 使用 HTML 标签创建文本
+        var la2 = $('<div></div>').text('文本内容222'); // 使用 jQuery 创建文本
+
+        // create(库力A特) innerHTML(应挪HTML)
+        var la3 = document.createElement('h1');
+        la3.innerHTML="我是通过dom创建的文本";
+         // 在被选元素之前插入元素 （注意是在span标签外面添加的）
+        $('span').before(la1, la2, la3);
+      });
+
+      //after(鸭父特) 在被选元素之后插入元素（注意：是在ul盒子的外面，不是在ul里面）
+      $('#tu').click(function(){
+        $('ul').after('<li>006添加过来的</li>');
+      });
+
+    })
+  </script>
+</body>
+</html>

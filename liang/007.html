@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>js数组去重排序</title>
+</head>
+<body>
+  <script type="text/javascript">
+  // arr代表数组，index代表下标
+  function lihua(arr, index){
+    arr[index] += arr[index + 1];
+    arr[index + 1] = arr[index] - arr[index + 1];
+    arr[index] -= arr[index + 1];
+  }
+  function bus(arr, asc){
+    for(var n = 1; n < arr.length; n++){
+      for(var m = 0; m < arr.length - 1; m++){
+        if(asc){
+          if(arr[m] > arr[m + 1]){
+            lihua(arr, m);
+          }
+        }else{
+          if(arr[m] < arr[m + 1]){
+            lihua(arr, m);
+          }
+        }
+      }
+    }
+    return arr;
+  }
+    var array = bus([3, 6, 25, 18, 3, 5, 18, 2, 25, 13, 0], true);
+    var a = Array.from(new Set(array));
+    console.log('a==>', a);
+  </script>
+</body>
+</html>

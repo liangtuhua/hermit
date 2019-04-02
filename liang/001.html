@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>001</title>
+  <style type="text/css">
+    .lia{
+      width:50%;
+      height:50px;
+      margin:20px auto 0;
+      background-color: #ddd;
+      position: relative;
+    }
+    .huashow{
+      width:80px;
+      position: absolute;
+      top:100%;
+      right:50%;
+      margin:0 auto;
+    }
+    .hua{
+      position: absolute;
+      top:0;
+      right:0;
+      width:100%;
+      height:50px;
+      text-align: center;
+      background:#0f0; 
+    }
+    .aax{
+      width:500px;
+      background-color: #0f0;
+      margin:0 auto;
+      line-height: 100px;
+      text-align: center;
+    }
+    table td{
+      border: 1px solid #0f0
+    }
+  </style>
+</head>
+<body>
+  <table style="border: 1px solid #0f0">
+    <tr>
+      <td>上午</td>
+      <td>01</td>
+      <td>02</td>
+      <td>03</td>
+      <td>04</td>
+    </tr>
+    <tr>
+      <td>下午</td>
+      <td>05</td>
+      <td>06</td>
+      <td>07</td>
+      <td>08</td>
+    </tr>
+    <tr>
+      <td>休息</td>
+      <td>09</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+  </table>
+  <!-- <input type="text" name="usee"> -->
+  <div id="ax" class="aax"><span>987654321</span></div>
+  <div class="lia">
+    <div id="hua" class="hua on">
+      我是显示的内容。。。。。。。
+    </div>
+  </div>
+  <span id="p1">sss</span>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('.lia').click(function(){
+        console.log(this)
+        if($('#hua').hasClass('on')){
+          $('#hua').removeClass('on');
+          $('#hua').css({
+           'display' : 'none',
+          })
+        }else{
+          $('#hua').addClass('on');
+          $('#hua').css({
+           'display' : 'block',
+          })
+        }
+      })
+
+　　　　　$("#p1").mousedown(function(){
+
+　　　　　　　　console.log("鼠标在该段落上按下！");
+
+　　　　　　 });
+
+　　　　　$("#p1").mouseup(function(){
+　　　　　　　　　　console.log("鼠标在段落上松开。");
+　　　　　　　　 });
+　　　　　　　});
+  
+
+  window.onload = function(){
+    var a =  document.getElementById('ax'); //id方式
+    console.log('a==>',a);
+    var b = document.getElementsByTagName('span');//标签方式
+    console.log('b==>', b);
+    var c = document.getElementsByClassName('aax');//类名方式
+    console.log('c==>', c);
+    var d = document.getElementsByName('usee');//name属性值方式
+    console.log('d==>', d);
+
+    var e = document.querySelector('.hua');
+    console.log('e==>', e);
+
+    var f = document.querySelectorAll('.hua');
+    console.log('f==>', f);
+
+    function isWscnAccount(str) {
+      const reg = /^[a-z0-9_-]{5,10}$/;
+      return reg.test(str.trim());
+    }
+    var kk = isWscnAccount('ass');
+    console.log('kk==>', kk);
+  }
+
+
+  function names(str){
+
+    // var regExp = /^[a-z0-9_-]{6,16}$/;
+
+    // if(!regExp(value)){
+
+    //   console.log('请输入正确的管理账号');
+
+    // }else{
+
+    // ​ console.log('输入正确');
+
+    // }
+    return names(str);
+  }
+  var axaxl =  names(str);
+  console.log('axaxl==>', axaxl);
+
+  </script>
+</body>
+</html>

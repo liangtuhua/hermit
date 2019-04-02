@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>013</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    .fl{
+      float: left;
+    }
+    .fr{
+      float:right;
+    }
+    .ovf{
+      overflow: hidden;
+    }
+    .box{
+      width:100%;
+    }
+    .box-cont{
+      width:100%;
+      margin:0 auto;
+    }
+    .header-box{
+      width:100%;
+      margin:0 auto;
+    }
+    .header{
+      width:95%;
+      background-color: #585858;
+      margin:0 auto;
+      text-align: center;
+      line-height: 50px;
+      color:#fff;
+    }
+    .nav{
+      width:95%;
+      background-color: #585858;
+      margin:10px auto 0;
+      text-align: center;
+      line-height: 50px;
+      color:#fff;
+    }
+    .content-box{
+      width:95%;
+      margin:10px auto;
+    }
+    .lef{
+      width:calc(60% - 10px);
+      color:#fff;
+      text-align: center;
+      line-height: 100px;
+      height: 500px;
+      margin-right: 10px;
+      background-color: #585858;
+      position: relative;
+    }
+    .sect{
+      position: absolute;
+      left:50%;
+      bottom: 10px;
+      transform: translate(-50%);
+      width:95%;
+      height:400px;
+      line-height: 400px;
+      background-color: #3b3b3b;
+    }
+    .rig{
+      width:40%;
+      color:#fff;
+      text-align: center;
+      line-height: 500px;
+      background-color: #585858;
+    }
+    .footer-box{
+      width:100%;
+    }
+    .footer{
+      width:95%;
+      margin:0 auto;
+      background-color: #585858;
+      text-align: center;
+      color:#fff;
+      line-height: 50px;
+     
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box-cont">
+      <div class="header-box">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+      </div>
+      <div class="content-box ovf">
+        <div class="lef fl">
+          <span>artic</span>
+          <div class="sect">sect...</div>
+        </div>
+        <div class="rig fl">aside</div>
+      </div>
+      <div class="footer-box">
+        <div class="footer">footer</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

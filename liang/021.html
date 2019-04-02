@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq遍历过滤</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    ul,li{
+      margin:0;
+      padding:0;
+      list-style: none;
+    }
+    .box{
+      width:100%;
+      margin:0 auto;
+      border: 5px solid #ccc;
+    }
+    .box1{
+      width:80%;
+      margin:0 auto;
+      line-height: 50px;
+    }
+    .box2{
+      width:90%;
+      margin:0 auto;
+    }
+    .ulst1{
+      width:100%;
+      border: 1px solid #008700;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1">
+      <span>ssskkklldldld</span>
+      <p>qwerrrrt</p>
+    </div>
+    <div class="box2">
+      <ul class="ulst1">
+        <li>0001</li>
+        <li>0002</li>
+        <li>0003</li>
+        <li>0004</li>
+      </ul>
+      <ul>
+        <li>a0a</li>
+        <li>a0b</li>
+        <li>a0c</li>
+        <li>a0d</li>
+      </ul>
+      <p>ssssss</p>
+      <p>asdfghjjk</p>
+      <span>kkkkkkkkkkk</span>
+      <h2>健康时间</h2>
+    </div>
+    <p class="abs">刷卡是扩扩扩扩扩扩扩扩扩扩</p>
+    <p>灌灌灌灌灌的</p>
+    <p class="abs">得得得勾三搭四的输入</p>
+    <p class="abs">时代大厦的</p>
+    <p>987654321</p>
+    <div>003</div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // $('div p').first().css({ //匹配首个带有p元素的div里面的p元素， 里面即使有多个p元素也是只返回首个p元素
+        //   'background' : '#000087',
+        // })
+
+        // $('div p').last().css({ //匹配最后一个带有p元素的div里面的p元素， 里面即使有多个p元素也是只返回最后一个p元素
+        //   'background' : '#000087',
+        // })
+
+
+        // $('ul li').eq(2).css({ //匹配首个带有li元素的ul里面的第3个li(因为从零开始，第一个为零)
+        //   'background' : '#000087',
+        // })
+
+        // $('p').filter('.abs').css({ //filter()方法允许您规定一个标准。返回匹配的元素。
+        //   'background' : '#000087',
+        // })
+
+        // filter()方法允许您规定一个标准。返回不匹配标准的所有元素。
+        $('p').not('.abs').css({ //这里的是的返回所有不带有.abs这个类的p元素
+          'background' : '#000087',
+        })
+
+      });
+    })
+  </script>
+</body>
+</html>

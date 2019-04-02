@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>json循环数组</title>
+</head>
+<body>
+  <div id="demos"></div>
+  <button id="btn">点击遍历数组</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+
+        var myObj, i , li = '';//声明空的变量用来存储数据
+        var myObj = {
+          'name' : '归隐情缘',
+          'num'  : '5',
+          'sites': ['liang', 'tu', 'hua'] 
+        };
+      // fo-in方法
+      //   for(i in myObj.sites) {
+      //     li += myObj.sites[i] + '<br/>';
+      //   }
+      //   $('#demos').html(li);
+      // })
+
+      // for循环方法
+        for(i = 0; i < myObj.sites.length; i++) {
+          li += myObj.sites[i] + '<br/>';
+        }
+        $('#demos').html(li);
+      })
+
+    })
+  </script>
+</body>
+</html>

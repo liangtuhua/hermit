@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>032</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    button{
+      width:20%;
+      margin:0 auto;
+      display: block; 
+    }
+    .box{
+      width:100%;
+    }
+    .box-b1{
+      width:85%;
+      margin:0 auto;
+      background-color: #ccc;
+      text-align: center;
+      list-style: none;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box-b1">
+      <span class="b1-a">01</span>
+      <span class="b1-b">02</span>
+      <span class="b1-c">03</span>
+    </div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        $('.box-b1').css({
+          'border' : '1px solid #f00',
+        });
+        var liang = new Date().toLocaleString();
+        $('.b1-a').html(liang).css({
+          'background' : '#0f0',
+          'display' : 'block',
+          'lineHeight' : '50px',
+        });
+        var tull = '传统技术和革新技术的区别'
+        var tu = '';
+        tu += '<ul><li>';
+        $('.b1-b').html(tu + tull + '</li></ul>');
+        $('ul,li').css({
+          'listStyle' : 'none',
+          'padding' : '0',
+          'margin' : '0',
+        });
+         $('.b1-b li').css({
+          'backgroundColor' : '#00f',
+          'lineHeight' : '80px',
+         })
+        var hua = '技术革命,速度决定一切';
+        var huak = '';
+        huak += '<h1>';
+        $('.b1-c').html(huak + hua + '</h1>');
+      })
+    })
+
+
+  
+
+  </script>
+</body>
+</html>

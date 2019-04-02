@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq--ajax</title>
+</head>
+<body,m>
+  <div class="box"></div>
+  <div class="box1">
+    <span></span>
+  </div>
+  <div class="box2">
+    <span></span>
+    <h2></h2>
+    <h5></h5>
+    <p></p>
+    <b></b>
+    <i></i>
+    <div class="hua"></div>    
+    <div class="a1"></div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <div class="a4"></div>
+    <div class="a5"></div>
+    <div class="a6"></div>
+    <div class="a7"></div>
+
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      // var apicom = 'http://test.laihaiqiang.com/admin/login/doLogin';
+      // var data = {
+      //   'account' : 'admin',
+      //     'pwd' : '111111'
+      // } 
+      // $.ajax({
+      //   url: apicom,
+      //   type : 'post',
+      //   dataType : 'json',
+      //   data : data,
+      //   success : function(res){
+      //     console.log('ssssss', res);
+      //     $('#btn').click(function(){
+      //       $('.box').html(res.data.access_token + '&nbsp' + res.message);
+      //     })
+      //   },
+      // })
+        
+     
+
+
+
+
+      var apiamd = 'http://test.laihaiqiang.com/admin/admin_user/index';
+      var data = {
+        access_token : 'd79503af882f7daf6fd8475d14e7d58b',//登录凭证
+        page : 1 //请求页数
+      }
+      $.ajax({
+        url: apiamd,
+        type : 'post',
+        dataType : 'json',
+        data : data,
+        success : function(res){
+          console.log('aaaaa==>>>', res);
+          $('#btn').click(function(){
+            // var lia = JSON.parse(res);
+            // obj.data.admin_list.data[0].create_time = new Date(res.data.admin_list.data[0].create_time);
+            // $('.box1>span').html(res.data.admin_list.data[0].create_time);
+            $('.box2>span').html('code' + '&nbsp&nbsp' + res.code); //响应状态码，0=请求成功
+            $('.box2>h2').html('message' + '&nbsp&nbsp' + res.message); //响应信息
+            $('.box2>h5').html('current_page' + '&nbsp&nbsp' + res.data.admin_list.current_page); //分页数据
+            $('.box2>p').html('last_page' + '&nbsp&nbsp' + res.data.admin_list.last_page); //总页数（最后一页）
+            $('.box2>b').html('pre_page' + '&nbsp&nbsp' + res.data.admin_list.pre_page);//每页数据条数
+            $('.box2>i').html('<br/>' + 'total' + '&nbsp&nbsp' + res.data.admin_list.total); //总数据条数
+
+            // $('.hua').html('id>>>>>>>' + '&nbsp&nbsp' + res.data.admin_list.data[0].id);
+            // $('.a1').html('username>>>' + '&nbsp&nbsp' + res.data.admin_list.data[0].username);
+            // $('.a2').html('account>>' + '&nbsp&nbsp' + res.data.admin_list.data[0].account);
+            // $('.a3').html('is_status>>' + '&nbsp&nbsp' + res.data.admin_list.data[0].is_status);
+            // $('.a4').html('create_time>>' + '&nbsp&nbsp' + res.data.admin_list.data[0].create_time);
+
+            //管理员数据
+            $('.hua').html('id>>>>>>>>>>' + '&nbsp&nbsp' + res.data.admin_list.data[1].id); //用户ID
+            $('.a1').html('username>>>' + '&nbsp&nbsp' + res.data.admin_list.data[1].username); //用户名
+            $('.a2').html('account>>' + '&nbsp&nbsp' + res.data.admin_list.data[1].account); //登录账号
+            $('.a3').html('is_status>>' + '&nbsp&nbsp' + res.data.admin_list.data[1].is_status); //用户状态码，1=正常、0=禁用
+            $('.a4').html('create_time>>' + '&nbsp&nbsp' + res.data.admin_list.data[1].create_time); //创建时间
+            $('.a6').html('have_power>>>>>' + '&nbsp&nbsp' + res.data.have_power); //禁用权限，1=有权限，0=无权限
+
+            // var lth = '';
+            // for(i = 0; i < res.data.admin_list.data.length; i++){
+            //   lth += res.data.admin_list.data[i].id;
+            //   console.log('lth++>>', lth);
+            // }
+
+            var lth = '<ul>';
+
+            for(i in res.data.admin_list.data){
+              lth += '<li>' + res.data.admin_list.data[i].id + '</li>';
+              lth += '<li>' + res.data.admin_list.data[i].username + '</li>';
+              lth += '<li>' + res.data.admin_list.data[i].account + '</li>';
+              lth += '<li>' + res.data.admin_list.data[i].is_status + '</li>';
+              lth += '<li>' + res.data.admin_list.data[i].create_time + '</li>';
+              lth += '</ul>'
+              console.log('lth===>>>', lth);
+              $('.a5').html(lth);
+            }
+          })
+        }
+      })
+    })
+  </script>
+</body>
+</html>

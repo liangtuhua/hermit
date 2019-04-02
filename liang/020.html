@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>遍历同胞元素</title>
+  <style type="text/css">
+    /*.{
+      display: block;
+    }*/
+  </style>
+</head>
+<body>
+  <div>
+    <div>00001</div>
+    <div>
+      <h1>lkdlksddddddd</h1>
+      <h2>zzzzzzzzzzzzzz</h2>
+      <p>ssssssssss</p>
+      <h1>k可接受的我施蒂利克</h1>
+      <h2>的历史上的第三代</h2>
+      <span>ssswwwwwwwwwwwwwwwdd</span>
+      <div>askjksjdad</div>
+
+      <p>ssssssssss</p>
+      <div>sssss</div>
+
+      <p>ssssssssss</p>
+      <h1>江湖救急军军军军军军军军军</h1>
+
+    </div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // siblings(是播令) 获取所有除了自身的同胞元素
+        // $('span').siblings('p').css({
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // });
+
+        //next() 方法返回被选元素的下一个同胞元素。该方法只返回一个元素。您也可以使用可选参数来过滤对同胞元素的搜索。
+        // $('p').next('h1').css({ //这里就是指定p元素的下一个兄弟元素,并且必须是h1元素
+        //   'display' : 'block',
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // });
+
+        //nextAll(呐是特) 方法返回被选元素的所有跟随的同胞元素。
+        // $('h2').nextAll().css({
+        //   'display' : 'block',
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // });
+
+         //nextUntil(呐是恩挑) 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+        // $('h2').nextUntil('span').css({
+        //   'display' : 'block',
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // });
+
+        
+        // // prev(沛v啊) 获取上一个同胞元素，该方法只返回一个元素,您也可以使用可选参数来过滤对同胞元素的搜索。
+        // $('span').prev('h1').css({ //这里就是指定p元素的上一个兄弟元素,并且必须是h1元素
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // }); 
+
+        // prevAll(撇沃) 获取被选元素的所有前面的同胞元素（兄元素）。您也可以使用可选参数来过滤对同胞元素的搜索。
+        // $('span').prevAll('h1').css({ //这里就是指定p元素的所有为h1的兄元素
+        //   'border' : '1px solid #f00',
+        //   'background' : '#008700',
+        // });
+
+        // prevUntil(撇恩挑)  方法返回介于两个给定参数之间的所有（兄）同胞元素。不设置参数默认搜索到最前面一个
+        $('span').prevUntil('p').css({ //要注意这里是指定到p元素之间的，不包括p元素
+          'border' : '1px solid #f00',
+          'background' : '#008700',
+        });
+               
+      })
+    })
+  </script>
+</body>
+</html>

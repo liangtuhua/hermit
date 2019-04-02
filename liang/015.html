@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq操作css</title>
+  <style type="text/css">
+    .on{
+      color:#0f0;
+      font-weight: bold;
+    }
+    .on1{
+      background-color: #f00;
+      color: #00f;
+    }
+    .on2{
+      background-color: #ccc;
+    }
+    .lia1{
+      width:500px;
+    }
+    .ass{
+      font-size: 30px;
+      border:1px solid #0f000f;
+    }
+    .vvb{
+      background-color: #f3cf0b;
+    }
+    .df{
+      line-height: 50px;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="liang">
+    <div class="lia1 ass vvb">我是文本内容1</div>
+    <div class="lia2">我是文本内容2</div>
+    <ul>
+      <li class="lasta df">001</li>
+      <li class="lasta">002</li>
+      <li class="listall">003</li>
+      <li class="listall">004</li>
+      <li class="listall">005</li>
+    </ul>
+    <p>我是一个段落</p>
+    <button id="btn">操作添加类</button>
+    <button id="btn1">操作删除类</button>
+    <button id="btn2">删除类和添加类切换</button>
+    <button id="btn3">获取属性</button>
+  </div>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // 添加类
+        $('.lia1,.lasta,p').addClass('on');
+        $('.lia2,.listall').addClass('on1');
+        $('.lia1,.lasta,p').addClass('on1 on2');
+       
+      });
+      $('#btn1').click(function(){
+         // 删除类
+        // $('.lia1').removeClass('ass');
+        $('.lia1,.lasta').removeClass('ass vvb df');
+      });
+      $('#btn2').click(function(){
+        // toggleClass (台高卡拉事) 对被选元素进行添加/删除类的切换操作
+        $('.lia1,.lasta').toggleClass('ass vvb df');
+      })
+
+    })
+  </script>
+</body>
+</html>

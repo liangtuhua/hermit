@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>jq删除元素</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    .box1{
+      width:500px;
+      margin:0 auto;
+    }
+    .box-aa{
+      width:100%;
+      line-height: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div class="box-aa">就算是受伤临时设施</div>
+    <p>ssssssssssssssssssssssss</p>
+    <div class="liang">ajjsjsjjsjsslls</div>
+  </div>
+  <ul id="hua">
+    <li class="listarr">001</li>
+    <li class="listarr">002</li>
+    <li>003</li>
+    <li class="listarr">004</li>
+    <li class="listarr">005</li>
+    <li class="listarr">006</li>
+  </ul>
+  <button id="btna">删除</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+
+      // remove 删除内容包括标签  remove() 方法也可接受一个参数，允许您对被删元素进行过滤。
+      // $('#btna').click(function(){
+      //   $('.box-aa,p').remove();
+      // });
+       $('#btna').click(function(){
+        console.log(this);
+        $('#hua>li').remove('.listarr');
+      });
+
+
+      // empty(m铁) 删除内容，保留标签
+      // $('#btna').click(function(){
+      //   $('.box-aa,p').empty();
+      // });
+    })
+  </script>
+</body>
+</html>

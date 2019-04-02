@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>json</title>
+  <style type="text/css">
+    .box{
+      width:80%;
+      margin:0 auto;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div>
+      名字：<span id="names" class="names"></span><br/>
+      地址：<span id="ulrs" class="ulrs"></span><br/>
+      内容：<span id="texts" class="texts"></span><br/>
+    </div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      var jsonObject = {
+        'names' : '将大大',
+        'url' : 'http://www.guiyinqingyuan.com',
+        'slogan' : '显示的啦啦啦啦'
+      }
+      $('#btn').click(function(){
+        // document.getElementById('names').innerHTML = jsonObject.names 原生js写法
+        $('.names').text(jsonObject.names) //text(),返回文本或修改文本 
+        $('.ulrs').text(jsonObject.url)
+        // $('.texts').text(jsonObject.slogan)
+
+        //html()获取或修改文本(包括标签元素)
+        $('.texts').html('<h1 style="display:inline-block;">' + jsonObject.slogan + '</h1>')
+
+        console.log(this);
+      })
+    })
+  </script>
+</body>
+</html>

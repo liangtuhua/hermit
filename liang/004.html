@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>禁止复制</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<style>
+.test{
+  /*属性值还有：
+  text:(可以选择)
+  all:(当所有内容作为一个整体时可以被选择。如果双击或者在上下文上点击子元素，那么被选择的部分将是以该子元素向上回溯的最高祖先元素。)
+  element：(可以选择文本，但选择范围受元素边界的约束) */
+
+  /*IE6-9不支持该属性，但支持使用标签属性 onselectstart="return false;" 来达到 user-select:none 的效果；Safari和Chrome也支持该标签属性；*/
+
+ /* 直到Opera12.5仍然不支持该属性，但和IE6-9一样，也支持使用私有的标签属性 unselectable="on" 来达到 user-select:none 的效果；unselectable 的另一个值是 off；*/
+
+ /*除Chrome和Safari外，在其它浏览器中，如果将文本设置为 -ms-user-select:none;，则用户将无法在该文本块中开始选择文本。不过，如果用户在页面的其他区域开始选择文本，则用户仍然可以继续选择将文本设置为 -ms-user-select:none; 的区域文本；（要解决这个问题可以通过给body设置这个属性来控制全部）*/
+  padding:10px;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+  background:#eee;
+}
+</style>
+</head>
+<body>
+<div class="test" onselectstart="return false;" unselectable="on">选择我试试，你会发现怎么也选择不到我，哈哈哈哈</div>
+
+
+<script type="text/javascript">
+  // 禁止复制文本内容 这个js是不支持火狐浏览器的，所以使用的时候需要和css一起使用。
+  document.oncontextmenu=new Function('event.returnValue=false;'); 
+  document.onselectstart=new Function('event.returnValue=false;');
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>向下遍历 DOM 树</title>
+  <style type="text/css">
+    html,body{
+      margin:0;
+    }
+    ul,li{
+      padding:0;
+      margin:0;
+      list-style:none;
+    }
+    .box{
+      width:100%;
+      overflow: hidden;
+      background-color: #ccc;
+    }
+    .box1{
+      width:85%;
+      margin:0 auto;
+      padding: 20px;
+      background-color: #033b03;
+    }
+    .ula{
+      width:calc(100% - 20px);
+      margin:10px; 
+      background-color: #033b3b;
+    }
+    .on{
+      padding:5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1">
+      <ul class="ula">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>
+          <span>lalalalalal</span>
+        </li>
+      </ul>
+      <ul>
+        <li>莎啦啦啦啦</li>
+        <span>啦啦飒飒</span>
+        <span class="on">
+          <span>啦啦飒飒</span>
+        </span>
+      </ul>
+      <div>ssssssssssssssssssssssssssssssssssssssss</div>
+    </div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // children(秋顿) 返回被选元素的所有直接子元素。
+        // $('.box1').children().css({
+        //   'backgroundColor' : '#008700',
+        //   'border' : '1px solid #f00',
+        // })
+
+        // $('.box1').children('ul.ula').css({ //可以通过传递参数来确定是哪一个子元素
+        //   'backgroundColor' : '#008700',
+        //   'border' : '1px solid #f00',
+        // })
+
+        // find(快应的)
+        // $('.box1').find('span').css({ //找到指定的所有后代元素
+        //   'backgroundColor' : '#008700',
+        //   'border' : '1px solid #f00',
+        // })
+
+        $('ul').find('*').css({ //*号代表所有后代元素
+          'backgroundColor' : '#008700',
+          'border' : '1px solid #f00',
+        })
+
+      })
+    })
+  </script>
+</body>
+</html>

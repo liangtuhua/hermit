@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>向上遍历 DOM 树</title>
+  <style type="text/css">
+    .box{
+      width:100%;
+      border:1px solid #000;
+    }
+    .box1{
+      width:90%;
+      margin:0 auto;
+      background-color: #ccc;
+      border:1px solid #000;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="box1">
+      <ul>
+        <li>001</li>
+        <li>001</li>
+        <li>001</li>
+        <li>
+          <ul>
+            <li>0001</li>
+            <li>0001</li>
+            <li>0001</li>
+            <li>
+              <span style="display: block;background-color: #ccc;">00</span>
+            </li>
+          </ul>
+          <ul>
+            <li>我虽然是ul,但是我是你父级ul的同级，所以和我没有关系</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // parent （泡恩体）
+        // $('span').parent().css({//获取父级
+        //   'backgroundColor': '#0f0',
+        //   'border':'1px solid #f00'
+        // });
+
+        // parents（泡恩事）
+        // $('span').parents().css({//获取所有祖先.(包括body和html)
+        //   'backgroundColor': '#0f0',
+        //   'border':'1px solid #f00',
+        //   'padding' : '10px'
+        // });
+
+        // $('span').parents('ul').css({//获取过滤后的指定所有祖先
+        //   'backgroundColor': '#0f0',
+        //   'border':'1px solid #f00',
+        //   'padding' : '10px'
+        // });
+
+        // parentsUntil(泡恩事恩挑)
+        $('span').parentsUntil('div').css({//获取从span到div之间的元素,(不包括div)
+          'backgroundColor': '#0f0',
+          'border':'1px solid #f00',
+          'padding' : '10px'
+        });
+
+      })
+    })
+  </script>
+</body>
+</html>

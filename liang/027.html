@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>将字符串转换为 Date 对象</title>
+  <style type="text/css">
+    .box{
+      width:55%;
+      margin:0 auto;
+      background-color: #ccc;
+      text-align: center;
+    }
+    button{
+      display: block;
+      margin:100px auto 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span id="doms"></span>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        // var dates = '{"name" : "liang", "initDate" : "2019-03-26", "site" : "huahua"}';
+        // var obj = JSON.parse(dates);//json转换js对象
+        // obj.initDate = new Date(obj.initDate); //json转换时间对象
+        // $('#doms').html(obj.name + "日期" + obj.initDate);
+
+        // 下面的方法和上面的方法结果是一样的，但是一般使用下面这个方法
+        // 我们可以启用 JSON.parse 的第二个参数 reviver，一个转换结果的函数，对象的每个成员调用此函数。
+        var dates = '{"name" : "liang", "initDate" : "2019-03-26", "site" : "huahua"}';
+        var obj = JSON.parse(dates, function(key,value){
+          if(key == 'initDate'){ //因为这里定义的initDate是时间格式，所以要做判断
+            return new Date(value);
+          }else{
+            return value;
+          }
+        });//json转换js对象
+       
+        $('#doms').html(obj.name + "日期" + obj.initDate);
+      })
+    })
+  </script>
+</body>
+</html>

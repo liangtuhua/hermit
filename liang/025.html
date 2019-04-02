@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>嵌套 JSON 对象中的数组</title>
+  <style type="text/css">
+    .box{
+      width:55%;
+      margin:0 auto;
+      background-color: #ccc;
+    }
+    button{
+      display: block;
+      margin:100px auto 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span id="doms"></span>
+  </div>
+  <button id="btn">点击</button>
+  <script type="text/javascript" src="../common/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#btn').click(function(){
+        console.log(this);
+        var myObj, i, j, texts = '';
+        myObj = {
+          'name' : '归隐情缘',
+          'mum'  : '3',
+          'sites': [
+            {'name' : 'guiyinqingyuan', 'info' : ['hremit', 'liangtuhua', 'huahua']},
+            {'name' : 'liang' , 'info' : ['liangasd', 'tuhuhu', 'huahuhhu']},
+            {'name' : 'huaqwe', 'info' : ['liaqwe', 'tuqwe', 'huqqwe']}
+          ]
+        }
+
+        // delete 删除数组元素
+        delete myObj.sites[1]; //注意下标是从0开始的
+
+        for (i in myObj.sites){
+          texts += '<h1>' + myObj.sites[i].name + '</h1>';
+          for(j in myObj.sites[i].info){
+            texts += myObj.sites[i].info[j] + '</br>';
+          }
+        }
+        $('#doms').html(texts); 
+
+      })
+    })
+  </script>
+</body>
+</html>
